@@ -24,6 +24,10 @@ Auth::routes();
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile/{id}', [\App\Http\Controllers\UserController::class,'show'])->name('profile');
 
+
 Route::middleware(['auth', 'verified'])->group(function (){
     Route::get('/my', [\App\Http\Controllers\UserController::class, 'home'])->name('my');
+    Route::get('/my/edit', [\App\Http\Controllers\UserController::class, 'edit'])->name("profile.edit");
+    Route::post('/profile/update/{id}', [\App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
+    Route::put('/profile/update/{id}', [\App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
 });

@@ -19,7 +19,7 @@
 
 @if (Auth::check())
     <div class="pt-15 w-4/5 m-auto">
-        <a 
+        <a
             href="/blog/create"
             class="bg-blue-500 uppercase bg-transparent text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
             Create post
@@ -38,7 +38,7 @@
             </h2>
 
             <span class="text-gray-500">
-                By <span class="font-bold italic text-gray-800">{{ $post->user->name }}</span>, Created on {{ date('jS M Y', strtotime($post->updated_at)) }}
+                By <a  href="{{route("profile", $post->user->id)}}" class="font-bold italic text-gray-800">{{ $post->user->name }}</a>, Created on {{ date('jS M Y', strtotime($post->updated_at)) }}
             </span>
 
             <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
@@ -51,7 +51,7 @@
 
             @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
                 <span class="float-right">
-                    <a 
+                    <a
                         href="/blog/{{ $post->slug }}/edit"
                         class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">
                         Edit
@@ -59,7 +59,7 @@
                 </span>
 
                 <span class="float-right">
-                     <form 
+                     <form
                         action="/blog/{{ $post->slug }}"
                         method="POST">
                         @csrf
@@ -75,7 +75,7 @@
                 </span>
             @endif
         </div>
-    </div>    
+    </div>
 @endforeach
 
 @endsection

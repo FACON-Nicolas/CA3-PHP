@@ -22,6 +22,8 @@ Route::resource('/blog', PostsController::class);
 Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile/{id}', [\App\Http\Controllers\UserController::class,'show'])->name('profile');
+
 Route::middleware(['auth', 'verified'])->group(function (){
     Route::get('/my', [\App\Http\Controllers\UserController::class, 'home'])->name('my');
 });

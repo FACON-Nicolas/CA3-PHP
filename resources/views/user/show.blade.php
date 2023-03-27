@@ -4,6 +4,9 @@
     <div class=" container mx-auto text-center">
         <h1 class="text-5xl">{{$user->name}}'s Profile</h1>
         <div class="mt-10 mb-10">
+            <div>
+                <img class="m-auto w-auto h-12 rounded-full" src="../{{$user->picturePath}}">
+            </div>
             <h5 class="text-1xl mb-2">Member since {{date_format($user->created_at,"j F Y")}}</h5>
             @if(isset($user->email_verified_at))
                 <span class="font-semibold text-green-400">Verified</span>

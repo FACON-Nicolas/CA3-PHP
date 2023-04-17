@@ -45,7 +45,7 @@ class UserController extends Controller
             ]
         );
         if(isset($request->name)) {
-            $user->name = $request->name;
+            $user->name = htmlspecialchars($request->name);
         }
 
         if($request->hasFile('image') && $request->file('image')->isValid()){

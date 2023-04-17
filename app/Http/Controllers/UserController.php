@@ -22,8 +22,18 @@ class UserController extends Controller
         $user = User::find($id);
         if(!isset($user))
             return view('404');
+
+        $followed = false;
+        if(Auth::check()){
+            foreach(Auth::user()->followed as $f){
+                if($f->id == $id){
+                    $followed = true;
+                    break;
+                }
+            }
+        }
         $posts = $user->post;
-        return view('user.show',['user' => $user, 'posts' => $posts]);
+        return view('user.show',['user' => $user, 'posts' => $posts, 'followed'=>$followed]);
     }
 
     public function edit(){

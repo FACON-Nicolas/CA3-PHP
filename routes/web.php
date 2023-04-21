@@ -37,4 +37,5 @@ Route::middleware(['auth', 'verified'])->group(function (){
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/search/{search}', [SearchController::class, 'search'])->name('search.search');
-
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile/{id}', [\App\Http\Controllers\UserController::class,'show'])->name('profile');

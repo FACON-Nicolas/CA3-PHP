@@ -26,9 +26,10 @@ class SearchController extends Controller
     }
 
     public function search(string $search): Factory|View|Application {
+
         return view('search.index', [
             'title' => 'Search Menu',
-            'users' => User::all()->where('name', 'like', '%'.$search.'%')
+            'users' => User::query()->where('name', 'LIKE',"%{$search}%")->get()
         ]);
     }
 

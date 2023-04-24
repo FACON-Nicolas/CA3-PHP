@@ -63,11 +63,11 @@ class UserController extends Controller
             $extension = $image->extension();
             if($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg'){
                 $nameImage = uniqid().preg_replace('/\s/','_',$user->name).'.'.$extension;
-                $image->storeAs('public/images/profiles',$nameImage);
+                $image->move(public_path('images/profiles'),$nameImage);
                 if($user->picturePath != "images/profiles/defaultPicture.png"){
-                    Storage::delete(preg_replace('/storage/','public',$user->picturePath));
+                    File::delete(public_path($user->picturePath));
                 }
-                $user->picturePath = 'storage/images/profiles/'.$nameImage;
+                $user->picturePath = 'images/profiles/'.$nameImage;
             }
             $user->save();
             return redirect()->route('my');

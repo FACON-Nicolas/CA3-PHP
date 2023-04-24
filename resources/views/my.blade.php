@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mx-auto text-center">
         <div class="grid grid-cols-3">
-            <div></div>
+            <div><!--Do Nothing --></div>
             <div>
                 <h1 class="text-5xl">Your Profile</h1>
                 <div class="mt-10 mb-10">
@@ -23,38 +23,10 @@
                 </div>
             </div>
             <div>
-                <div class="mb-2">
-                <h2 class="text-4xl">Followers</h2>
-                 @foreach($user->follower as $follower)
-                     <div>
-                     <a class="hover:text-green-400" href="{{route('profile',[$follower->id])}}">{{$follower->name}}</a>
-                     </div>
-                 @endforeach
-                </div>
-                <div>
-                    <h2 class="text-4xl">Followed</h2>
-                    @foreach($user->followed as $followed)
-                        <div>
-                            <a class="hover:text-green-400" href="{{route('profile',[$followed->id])}}">{{$followed->name}}</a>
-                        </div>
-                    @endforeach
-                </div>
+                <x-profile.follower :follower="$user->follower"></x-profile.follower>
+                <x-profile.followed :followed="$user->followed"></x-profile.followed>
+                <x-profile.posts :posts="$posts"></x-profile.posts>
             </div>
-        </div>
-        <div class="container mx-auto border-t border-gray-350 w-3/5 m-auto">
-            <h2 class="text-5xl">Posts</h2>
-
-            @foreach($posts as $post)
-                <a class="hover:text-gray-500" href="/blog/{{$post->slug}}">
-                    <div class=" border-b border-gray-300 pt-5 pb-4 w-3/5 m-auto">
-                        <h3 class="text-3xl">{{$post->title}}</h3>
-                        <p class="text-base">{{$post->description}}</p>
-                        <div class="text-xs text-right">
-                            Created on {{ date('jS M Y', strtotime($post->updated_at))}}
-                        </div>
-                    </div>
-                </a>
-            @endforeach
         </div>
     </div>
 

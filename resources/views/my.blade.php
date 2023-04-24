@@ -1,21 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class=" container mx-auto text-center">
-        <h1 class="text-5xl">Your Profile</h1>
-        <div class="mt-10 mb-10">
+    <div class="container mx-auto text-center">
+        <div class="grid grid-cols-3">
+            <div></div>
             <div>
-                <img class="m-auto w-auto h-12 rounded-full" src="{{$user->picturePath}}">
-            </div>
-            <h4 class="text-4xl mb-2">{{$user->name}}</h4> <a class="hover:text-green-400" href="{{route("profile.edit")}}">Edit</a>
-            <h5 class="text-1xl mb-2">Member since {{date_format($user->created_at,"j F Y")}}</h5>
-            <div class="text-2xl">{{$user->email}}</div>
+                <h1 class="text-5xl">Your Profile</h1>
+                <div class="mt-10 mb-10">
+                    <div>
+                        <img class="m-auto w-auto h-12 rounded-full" src="{{$user->picturePath}}">
+                    </div>
+                    <h4 class="text-4xl mb-2">{{$user->name}}</h4> <a class="hover:text-green-400"
+                                                                      href="{{route("profile.edit")}}">Edit</a>
+                    <h5 class="text-1xl mb-2">Member since {{date_format($user->created_at,"j F Y")}}</h5>
+                    <div class="text-2xl">{{$user->email}}</div>
 
-            @if(isset($user->email_verified_at))
-                <span class="font-semibold text-green-400">Verified</span>
-            @else
-                <span class="font-semibold text-red-400">Non-verified</span>
-            @endif
+                    @if(isset($user->email_verified_at))
+                        <span class="font-semibold text-green-400">Verified</span>
+                    @else
+                        <span class="font-semibold text-red-400">Non-verified</span>
+                    @endif
+                </div>
+            </div>
+            <div>
+                <div class="mb-2">
+                <h2 class="text-4xl">Followers</h2>
+                 @foreach($user->follower as $follower)
+                     <div>
+                     <a class="hover:text-green-400" href="{{route('profile',[$follower->id])}}">{{$follower->name}}</a>
+                     </div>
+                 @endforeach
+                </div>
+                <div>
+                    <h2 class="text-4xl">Followed</h2>
+                    @foreach($user->followed as $followed)
+                        <div>
+                            <a class="hover:text-green-400" href="{{route('profile',[$followed->id])}}">{{$followed->name}}</a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
         <div class="container mx-auto border-t border-gray-350 w-3/5 m-auto">
             <h2 class="text-5xl">Posts</h2>

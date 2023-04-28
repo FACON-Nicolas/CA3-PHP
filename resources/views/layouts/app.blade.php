@@ -19,7 +19,7 @@
 
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-    <div id="app">
+    <div id="app" class="bg-black text-white">
         <x-header></x-header>
 
         <div>

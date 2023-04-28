@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -69,5 +71,26 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+     * The user has been registered
+     * @param Request $request
+     * @param $user
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    protected function registered(Request $request, $user)
+    {
+        if ($request->hasFile("profile-picture") && $request->file('profile-picture')->isValid()) {
+            $image = $request->file('profile-picture');
+            $extension = $image->extension();
+            if ($extension == 'png' || $extension == 'jpg' || $extension == 'jpeg') {
+                $nameImage = uniqid() . preg_replace('/\s/', '_', $user->name) . '.' . $extension;
+                $image->move(public_path('images/profiles'),$nameImage);
+                $user->picturePath = 'images/profiles/'.$nameImage;
+                $user->save();
+            }
+        }
+        return redirect('my');
     }
 }

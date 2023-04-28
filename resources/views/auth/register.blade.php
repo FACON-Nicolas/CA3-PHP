@@ -11,7 +11,7 @@
                 </header>
 
                 <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"
-                    action="{{ route('register') }}">
+                    action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="flex flex-wrap">
@@ -68,6 +68,12 @@
 
                         <input id="password-confirm" type="password" class="form-input w-full"
                             name="password_confirmation" required autocomplete="new-password">
+                    </div>
+
+                    <div class="flex flex-wrap">
+                        <label for="profile-picture" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">{{__('Profile Picture')}}:</label>
+                        <input id="profile-picture" type="file" class="form-input w-full"
+                               name="profile-picture">
                     </div>
 
                     <div class="flex flex-wrap">

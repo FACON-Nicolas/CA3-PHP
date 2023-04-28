@@ -1,7 +1,7 @@
 <div class="w-full pb-20">
     <style>
         .post-bg {
-            background-color: #888888;
+            background-color: #444;
             color: white;
         }
     </style>

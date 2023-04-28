@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Post;
 
-use Illuminate\Database\Eloquent\Collection;
+use App\Models\Post;
 use Illuminate\View\Component;
 
 class Likes extends Component
@@ -12,7 +12,7 @@ class Likes extends Component
      *
      * @return void
      */
-    public function __construct(public Collection $likes)
+    public function __construct(public Post $post)
     {
         //
     }

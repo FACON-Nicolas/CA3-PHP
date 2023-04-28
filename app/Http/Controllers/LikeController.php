@@ -12,14 +12,14 @@ class LikeController extends Controller
         $user = Auth::user();
         $post = Post::where('slug',$slug)->first();
         $post->likes()->attach($user);
-        return redirect()->route('blog.show',['blog'=>$slug]);
+        return redirect()->back();
     }
 
     public function destroy(Request $request, $slug){
         $user = Auth::user();
         $post = Post::where('slug',$slug)->first();
         $post->likes()->detach($user);
-        return redirect()->route('blog.show',['blog'=>$slug]);
+        return redirect()->back();
     }
 
 

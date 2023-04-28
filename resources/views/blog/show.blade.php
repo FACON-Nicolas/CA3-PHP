@@ -31,7 +31,7 @@
     @guest
         <span>♡</span>
     @endguest
-    <span>{{$post->likes->count()}}</span>
+    <x-post.likes :likes="$post->likes"></x-post.likes>
 </div>
 
 @endsection

@@ -24,7 +24,7 @@
 
         <ul class="hidden absolute top-1/2 left-3/4 transform -translate-y-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
             <li>
-                <a class="text-sm text-gray-400 hover:text-gray-500" href="#">
+                <a class="text-sm text-gray-400 hover:text-gray-500" href="/">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-8 h-8 inline-block">
                         <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
                         <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
@@ -68,9 +68,9 @@
                 </a>
             </li>
             <li>
-                <a class="text-sm text-gray-400 hover:text-gray-500" href="#">
+                <a class="text-sm text-gray-400 hover:text-gray-500">
                     <div class="flex-col inline-block bg-blue-500 rounded-sm">
-                        <a>
+                        <a href=" {{ route('blog.create') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" class="w-8 h-8 p-1 inline-block">
                                 <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
                             </svg>

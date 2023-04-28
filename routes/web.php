@@ -27,6 +27,7 @@ Route::resource('/blog', PostsController::class);
 Auth::routes();
 
 Route::middleware(['auth', 'verified'])->group(function (){
+    Route::resource('/blog', PostsController::class);
     Route::get('/my', [UserController::class, 'home'])->name('my');
     Route::get('/my/edit', [UserController::class, 'edit'])->name("profile.edit");
     Route::post('/search', [SearchController::class, 'index'])->name('search');

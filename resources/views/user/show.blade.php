@@ -6,25 +6,7 @@
             <div><!--Do Nothing --></div>
             <div>
                 <h1 class="text-5xl">{{$user->name}}'s Profile</h1>
-                @auth
-                    @if($user->id != Auth::id())
-                        @if(!$followed)
-                            <form id="follow" action="{{route('follow',[$user->id])}}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
-                            <a href="{{route('follow',[$user->id])}}"
-                               onclick="event.preventDefault();document.getElementById('follow').submit();">Follow</a>
-                        @else
-                            <form id="unfollow" action="{{route('unfollow',[$user->id])}}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                            </form>
-                            <a href="{{route('unfollow',[$user->id])}}"
-                               onclick="event.preventDefault();document.getElementById('unfollow').submit();">Unfollow</a>
-                        @endif
-                    @endif
-                @endauth
+                <x-user.follow :user="$user"></x-user.follow>
                 <div class="mt-10 mb-10">
                     <div>
                         <img class="m-auto w-auto h-12 rounded-full" src="../{{$user->picturePath}}">

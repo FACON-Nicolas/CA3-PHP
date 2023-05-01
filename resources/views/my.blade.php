@@ -26,6 +26,7 @@
                 <x-profile.follower :follower="$user->follower"></x-profile.follower>
                 <x-profile.followed :followed="$user->followed"></x-profile.followed>
                 <x-profile.posts :posts="$posts"></x-profile.posts>
+                <x-profile.drafts :posts="$posts"></x-profile.drafts>
             </div>
         </div>
     </div>

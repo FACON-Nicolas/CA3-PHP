@@ -34,5 +34,6 @@ Route::middleware(['auth', 'verified'])->group(function (){
     Route::post('/profile/{id}/unfollow', [\App\Http\Controllers\FollowController::class, 'destroy'])->name('unfollow');
     Route::post('/blog/{blog}/like',[\App\Http\Controllers\LikeController::class,'store'])->name('like');
     Route::post('/blog/{blog}/unlike',[\App\Http\Controllers\LikeController::class,'destroy'])->name('unlike');
+    Route::post('/blog/{blog}/publish',[PostsController::class,'publish'])->name('publish');
 
 });

@@ -1,16 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto text-center">
-        <div class="grid grid-cols-3">
-            <div><!--Do Nothing --></div>
+    <style>
+        .pp {
+            background-image: url({{ asset($user->picturePath) }});
+            background-size: cover;
+            width: 15vw;
+            height: 15vw;
+        }
+    </style>
+    <div class="container">
+        <div>
             <div>
-                <h1 class="text-5xl">Your Profile</h1>
                 <div class="mt-10 mb-10">
-                    <div>
-                        <img class="m-auto w-auto h-12 rounded-full" src="{{$user->picturePath}}">
+                    <div class="flex flex-row gap-5 px-5">
+                        <div class="rounded-full pp"></div>
+                        <h4 class="text-2xl mb-2">{{$user->name}}</h4>
                     </div>
-                    <h4 class="text-4xl mb-2">{{$user->name}}</h4> <a class="hover:text-green-400"
+                     <a class="hover:text-green-400"
                                                                       href="{{route("profile.edit")}}">Edit</a>
                     <h5 class="text-1xl mb-2">Member since {{date_format($user->created_at,"j F Y")}}</h5>
                     <div class="text-2xl">{{$user->email}}</div>
@@ -22,7 +29,8 @@
                 <x-profile.posts :posts="$posts"></x-profile.posts>
             </div>
         </div>
-        <div style="width: 35rem; margin:auto;"><x-liste-post :posts="$posts"></x-liste-post></div>
     </div>
+    <div style="width: 35rem; margin:auto;"><x-liste-post :posts="$posts"></x-liste-post></div>
+
 
 @endsection

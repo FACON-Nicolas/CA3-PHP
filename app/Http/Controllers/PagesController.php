@@ -9,6 +9,6 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('index', ['title' => 'Tumblr', 'posts' => Post::all()]);
+        return view('index', ['title' => 'Tumblr', 'posts' => Post::orderBy('created_at', 'DESC')->get()]);
     }
 }

@@ -14,12 +14,6 @@
                                                                       href="{{route("profile.edit")}}">Edit</a>
                     <h5 class="text-1xl mb-2">Member since {{date_format($user->created_at,"j F Y")}}</h5>
                     <div class="text-2xl">{{$user->email}}</div>
-
-                    @if(isset($user->email_verified_at))
-                        <span class="font-semibold text-green-400">Verified</span>
-                    @else
-                        <span class="font-semibold text-red-400">Non-verified</span>
-                    @endif
                 </div>
             </div>
             <div>
@@ -28,6 +22,7 @@
                 <x-profile.posts :posts="$posts"></x-profile.posts>
             </div>
         </div>
+        <div style="width: 35rem; margin:auto;"><x-liste-post :posts="$posts"></x-liste-post></div>
     </div>
 
 @endsection

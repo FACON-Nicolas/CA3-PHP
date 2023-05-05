@@ -20,7 +20,7 @@ use App\Http\Controllers\PostsController;
 |
 */
 
-Route::get('/', [PagesController::class, 'index']);
+Route::get('/', [PagesController::class, 'index'])->name('home');
 
 Route::resource('/blog', PostsController::class);
 
@@ -40,5 +40,4 @@ Route::middleware(['auth', 'verified'])->group(function (){
     Route::post('/blog/{blog}/publish',[PostsController::class,'publish'])->name('publish');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/profile/{id}', [UserController::class,'show'])->name('profile');

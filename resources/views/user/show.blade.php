@@ -23,6 +23,7 @@
                 <x-profile.follower :follower="$user->follower"></x-profile.follower>
                 <x-profile.followed :followed="$user->followed"></x-profile.followed>
                 <x-profile.posts :posts="$posts"></x-profile.posts>
+                <script src="{{ asset('js/profile.js') }}"></script>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="mb-2">
-    <button id="btn-follower" class="text-4xl hover:text-gray-500">
-        Followers {{$follower->count()}}</button>
+    <p id="btn-follower" class="text-4xl hover:text-gray-500 text-right pr-5">
+        Followers {{$follower->count()}}</p>
     <div id="follower" class="modal">
         <div class="modal-content bg-gray-900 rounded-sm">
             <span class="close text-white text-right">❌</span>

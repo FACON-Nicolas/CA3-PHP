@@ -1,5 +1,5 @@
 <div class="mb-2">
-    <button class="text-4xl hover:text-gray-500" id="btn-posts">Posts {{$posts->count()}}</button>
+    <p class="text-4xl hover:text-gray-500 text-right pr-5" id="btn-posts">Posts {{$posts->count()}}</p>
     <div id="posts" class="modal">
         <div class="modal-content  bg-gray-500">
             <span class="close text-white text-right">X</span>

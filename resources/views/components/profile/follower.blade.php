@@ -2,8 +2,8 @@
     <button id="btn-follower" class="text-4xl hover:text-gray-500">
         Followers {{$follower->count()}}</button>
     <div id="follower" class="modal">
-        <div class="modal-content  bg-gray-500">
-            <span class="close text-white text-right">X</span>
+        <div class="modal-content bg-gray-900 rounded-sm">
+            <span class="close text-white text-right">❌</span>
             @if($follower->count() == 0)
                 <p>No follower found</p>
             @endif

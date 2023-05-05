@@ -7,7 +7,8 @@
                 <p>No post found</p>
             @endif
             @foreach($posts as $post)
-                <a class=" hover:text-gray-100" href="/blog/{{$post->slug}}">
+                <x-post-modal :post="$post"></x-post-modal>
+                <!--<a class=" hover:text-gray-100" href="/blog/{{$post->slug}}">
                     <div class=" border-b border-gray-300 pt-5 pb-4 w-3/5 m-auto">
                         <h3 class="text-3xl">{{$post->title}}</h3>
                         <p class="text-base">{{$post->description}}</p>
@@ -15,7 +16,7 @@
                             Created on {{ date('jS M Y', strtotime($post->updated_at))}}
                         </div>
                     </div>
-                </a>
+                </a>-->
             @endforeach
         </div>
     </div>

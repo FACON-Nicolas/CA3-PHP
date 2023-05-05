@@ -3,7 +3,22 @@
 @section('content')
     <div class="container mx-auto text-center">
         <div class="grid grid-cols-3">
-            <div><!--Do Nothing --></div>
+            <div>
+                <div class="mt-3">
+                    <form method="post" action="{{route('logout')}}">
+                        @csrf
+                        <button class="drop-shadow-md bg-red-500 p-3 hover:bg-red-400 rounded" type="submit">Logout</button>
+                    </form>
+                </div>
+
+                <div class="mt-3">
+                    <form method="post" action="{{route('profile.delete')}}">
+                        @method('DELETE')
+                        @csrf
+                        <button class="drop-shadow-md bg-red-700 p-3 hover:bg-red-600 rounded" type="submit">Delete profile</button>
+                    </form>
+                </div>
+            </div>
             <div>
                 <h1 class="text-5xl">Your Profile</h1>
                 <div class="mt-10 mb-10">

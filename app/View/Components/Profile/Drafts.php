@@ -5,7 +5,7 @@ namespace App\View\Components\Profile;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class Posts extends Component
+class Drafts extends Component
 {
     public Collection $posts;
     /**
@@ -15,7 +15,7 @@ class Posts extends Component
      */
     public function __construct(Collection $posts)
     {
-        $this->posts = $posts->where('draft',false);
+        $this->posts = $posts->where('draft',true);
     }
 
     /**
@@ -25,6 +25,6 @@ class Posts extends Component
      */
     public function render()
     {
-        return view('components.profile.posts');
+        return view('components.profile.drafts');
     }
 }

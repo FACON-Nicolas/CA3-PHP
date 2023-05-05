@@ -10,6 +10,18 @@ var posts = document.getElementById("posts");
 var btnPosts = document.getElementById("btn-posts");
 var closePosts = posts.getElementsByClassName("close")[0];
 
+var drafts = document.getElementById("drafts");
+if(drafts !== null){
+    var btnDrafts = document.getElementById("btn-drafts");
+    var closeDrafts = drafts.getElementsByClassName("close")[0];
+    btnDrafts.onclick = function(){
+        drafts.style.display = "block";
+    }
+    closeDrafts.onclick = function(){
+        drafts.style.display = 'none';
+    }
+}
+
 btnFollowed.onclick = function (){
     followed.style.display = "block";
     follower.style.display = "none";
@@ -46,6 +58,9 @@ window.onclick = function(event){
     }
     if(event.target === posts){
         posts.style.display = "none";
+    }
+    if(drafts !== null && event.target === drafts){
+        drafts.style.display = "none";
     }
 
 }

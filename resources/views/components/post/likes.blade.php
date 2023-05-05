@@ -14,7 +14,7 @@
 @guest
     <span>♡</span>
 @endguest
-<script src="{{ asset('js/likes.js') }}" defer></script>
+@once<script src="{{ asset('js/likes.js') }}" defer></script>@endonce
 <button class="hover:text-gray-500 btn-likes" onclick="display({{$post->id}})">{{$post->likes->count()}}</button>
 <div id="likes{{$post->id}}" class="modal">
     <div class="modal-content  bg-gray-500">

@@ -21,15 +21,15 @@
     </div>
 @else()
     <div class="absolute right-10 top-24 lg:flex-row gap-2 hidden lg:flex">
-        @if(Auth::user()->followed()->find($user->id) === null)
+        @if(!Auth::user()->followed->contains($user))
             <form method="post" action="{{ route('follow', $user->id) }}">
                 @csrf
-                <button class="drop-shadow-md bg-blue-500 p-3 hover:bg-blue-600 rounded" type="submit">follow</button>
+                <button class="drop-shadow-md w-24 bg-blue-500 p-3 hover:bg-blue-600 rounded" type="submit">follow</button>
             </form>
         @else
             <form method="post" action="{{ route('unfollow', $user->id) }}">
                 @csrf
-                <button class="drop-shadow-md bg-red-500 p-3 hover:bg-red-600 rounded" type="submit">unfollow</button>
+                <button class="drop-shadow-md w-24 bg-red-500 p-3 hover:bg-red-600 rounded" type="submit">unfollow</button>
             </form>
         @endif
     </div>

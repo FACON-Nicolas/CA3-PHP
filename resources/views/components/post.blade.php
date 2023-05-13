@@ -40,7 +40,14 @@
     <hr>
     <section class="w-full "><img class="w-full post-bg" src="{{ asset('images/'.$post->image_path) }}" alt=""></section>
     <hr>
-    <div class="post-bg rounded-b-sm">
-        <p class="p-5"><b>{{ $post->user->name }}</b>&nbsp; {{ $post->description }}</p>
+    <div class="post-bg px-5 py-2 text-3xl">
+        <form method="post" action="@if(Auth::user()->likes->contains($post)) {{ route('unlike', $post->slug) }} @else {{ route('like', $post->slug) }} @endif">
+            @csrf
+            <button @if(Auth::user()->likes->contains($post)) class="text-red-600" @endif>@if(Auth::user()->likes->contains($post)) ♥ @else ♡ @endif</button>
+        </form>
+        <p class="text-xl mt-2">{{ $post->likes->count() }} likes</p>
+    </div>
+    <div class="post-bg">
+        <p class="pb-5 px-5"><b>{{ $post->user->name }}</b>&nbsp; {{ $post->description }}</p>
     </div>
 </div>

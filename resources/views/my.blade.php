@@ -9,6 +9,24 @@
     </style>
     <div>
         <div>
+   <!-- <div class="container mx-auto text-center">
+        <div class="grid grid-cols-3">
+            <div>
+                <div class="mt-3">
+                    <form method="post" action="{{route('logout')}}">
+                        @csrf
+                        <button class="drop-shadow-md bg-red-500 p-3 hover:bg-red-400 rounded" type="submit">Logout</button>
+                    </form>
+                </div>
+
+                <div class="mt-3">
+                    <form method="post" action="{{route('profile.delete')}}">
+                        @method('DELETE')
+                        @csrf
+                        <button class="drop-shadow-md bg-red-700 p-3 hover:bg-red-600 rounded" type="submit">Delete profile</button>
+                    </form>
+                </div>
+            </div>-->
             <div>
                 <div class="py-10 mx-auto">
                     <div class="flex flex-row gap-5 px-5 mx-auto lg:w-1/2 md:w-3/5 w-5/6">
@@ -24,6 +42,8 @@
                                 <x-profile.follower :follower="$user->follower"></x-profile.follower>
                                 <x-profile.followed :followed="$user->followed"></x-profile.followed>
                                 <x-profile.posts :posts="$posts"></x-profile.posts>
+                                <script src="{{ asset('js/profile.js') }}"></script>
+
                             </div>
                         </div>
                     </div>

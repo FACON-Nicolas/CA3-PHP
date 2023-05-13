@@ -21,6 +21,7 @@ class Posts extends Migration
             $table->string('image_path');
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
+            $table->boolean("draft")->default(true);
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

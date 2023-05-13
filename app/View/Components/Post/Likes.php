@@ -1,21 +1,20 @@
 <?php
 
-namespace App\View\Components\Profile;
+namespace App\View\Components\Post;
 
-use Illuminate\Database\Eloquent\Collection;
+use App\Models\Post;
 use Illuminate\View\Component;
 
-class Posts extends Component
+class Likes extends Component
 {
-    public Collection $posts;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Collection $posts)
+    public function __construct(public Post $post)
     {
-        $this->posts = $posts->where('draft',false);
+        //
     }
 
     /**
@@ -25,6 +24,6 @@ class Posts extends Component
      */
     public function render()
     {
-        return view('components.profile.posts');
+        return view('components.post.likes');
     }
 }

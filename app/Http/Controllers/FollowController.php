@@ -12,13 +12,13 @@ class FollowController extends Controller
         $followed = User::find($user_id);
         $follower = Auth::user();
         $follower->followed()->attach($followed);
-        return redirect()->route('profile',['id'=>$user_id]);
+        return redirect()->back();
     }
 
     public function destroy(Request $request, $user_id){
         $followed = User::find($user_id);
         $follower = Auth::user();
         $follower->followed()->detach($followed);
-        return redirect()->route('profile',['id'=>$user_id]);
+        return redirect()->back();
     }
 }

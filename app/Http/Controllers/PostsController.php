@@ -127,8 +127,7 @@ class PostsController extends Controller
         $post = Post::where('slug', $slug);
         $post->delete();
 
-        return redirect('/blog')
-            ->with('message', 'Your post has been deleted!');
+        return redirect('/');
     }
 
     public function publish($slug)

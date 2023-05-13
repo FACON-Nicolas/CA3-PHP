@@ -35,7 +35,6 @@ Route::middleware(['auth', 'verified'])->group(function (){
     Route::post('my/delete',[UserController::class,'delete'])->name('profile.delete');
 
     Route::get('/profile/{id}', [UserController::class,'show'])->name('profile');
-    Route::post('/profile/update/{id}', [\App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
     Route::put('/profile/update/{id}', [\App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
 
 

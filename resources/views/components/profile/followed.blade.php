@@ -1,6 +1,8 @@
 <div class="mb-2">
-    <p class="text-4xl text-right hover:text-gray-500 pr-5" id="btn-followed">
-        Followed {{$followed->count()}}</p>
+    <button class="text-center hover:text-gray-500 pr-5" id="btn-followed">
+        <p><b>Followed</b></p>
+        <p>{{$followed->count()}}</p>
+    </button>
     <div id="followed" class="modal">
         <div class="modal-content  bg-gray-500">
             <span class="close text-white text-right">X</span>

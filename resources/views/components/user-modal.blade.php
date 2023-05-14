@@ -1,5 +1,5 @@
 <style>
-    #search-user-{{$user->id}} {
+    #modal-user-{{$user->id}} {
         background-image: url('{{ asset($user->picturePath) }}');
         background-size: cover;
         background-position: center;

@@ -16,7 +16,7 @@
                         $content = substr($message->message, 0, min(20, strlen($message->message)));
                         if ($message->message != $content) $content.='...';
                     @endphp
-                    <a>
+                    <a href="{{ route('messages.show', $user->id) }}">
                         <x-chat :user="$user" :content="$content"></x-chat>
                     </a>
                 </ul>

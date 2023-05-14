@@ -7,14 +7,15 @@ use Illuminate\View\Component;
 
 class Posts extends Component
 {
+    public Collection $posts;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(public Collection $posts)
+    public function __construct(Collection $posts)
     {
-        //
+        $this->posts = $posts->where('draft',false);
     }
 
     /**

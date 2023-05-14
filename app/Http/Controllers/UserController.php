@@ -73,4 +73,13 @@ class UserController extends Controller
             return redirect()->route('my');
         }
     }
+
+    public function delete(){
+        $user = Auth::user();
+        if(Gate::allows('update_profile',$user)){
+            $user->delete();
+            Auth::logout();
+        }
+        return redirect()->route('home');
+    }
 }

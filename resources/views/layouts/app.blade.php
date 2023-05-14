@@ -18,16 +18,12 @@
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
 
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-    <div id="app">
+<body class="bg-black h-screen antialiased leading-none font-sans">
+    <div id="app" class="bg-black text-white">
         <x-header></x-header>
 
         <div>
             @yield('content')
-        </div>
-
-        <div>
-            @include('layouts.footer')
         </div>
     </div>
 </body>

@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    @php
-        $messages = Auth::user()->sent->where('receiver_id', $user->id)->merge($user->sent->where('receiver_id', Auth::user()->id))->sortBy('created_at');
-    @endphp
-    @foreach($messages as $message)
-        <x-message-view :message="$message"></x-message-view>
-    @endforeach
-
-    <div class="absolute bottom-1 w-full">
+    <div class="overflow-scroll pb-20">
+        @php
+            $messages = Auth::user()->sent->where('receiver_id', $user->id)->merge($user->sent->where('receiver_id', Auth::user()->id))->sortBy('created_at');
+        @endphp
+        @foreach($messages as $message)
+            <x-message-view :message="$message"></x-message-view>
+        @endforeach
+    </div>
+    <div class="bottom-1 w-full fixed">
         <form method="post" action="{{ route('messages.store', $user->id) }}">
             @csrf
             <div class="m-6 ">

@@ -48,6 +48,7 @@ Route::middleware(['auth', 'verified'])->group(function (){
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/messages/show/{user_id}', [MessageController::class, 'show'])->name('messages.show');
     Route::post('/messages/showName/', [MessageController::class, 'showName'])->name('messages.showName');
+    Route::get('/explorer', [PagesController::class, 'explorer'])->name('explorer');
 
     Route::post('/messages/store/{user_id}', [MessageController::class, 'store'])->name('messages.store');
 

@@ -5,19 +5,17 @@
     </button>
     <div id="followed" class="modal">
         <div class="modal-content  bg-gray-500">
-            <span class="close text-white text-right">X</span>
+            <span class="close text-white text-right block">❌</span>
             @if($followed->count() == 0)
-                <p>No followed users found</p>
+                <div class="flex w-full h-full justify-center items-center">
+                    <p class="text-center font-bold text-xl">No followed users found</p>
+                </div>
             @endif
             @foreach($followed as $user)
-                <div>
-                    <a class=" hover:text-gray-100"
-                       href="{{route('profile',[$user->id])}}">{{$user->name}}</a>
-                </div>
+                <a href="{{ route('profile', $user->id) }}">
+                    <x-user-modal :user="$user"></x-user-modal>
+                </a>
             @endforeach
-            <div>
-
-            </div>
         </div>
     </div>
 </div>

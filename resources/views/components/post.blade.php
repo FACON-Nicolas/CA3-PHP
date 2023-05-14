@@ -5,7 +5,7 @@
             color: white;
         }
     </style>
-    <div class="flex flex-row w-full post-bg">
+    <div class="flex flex-row w-full post-bg" id="{{ $post->id }}">
         <a href="{{ route('profile', $post->user->id) }}">
             <div class="flex flex-row rounded-t-sm">
                 <div class="flex flex-col my-auto items-center"><img class="w-8 h-8 ml-3" src="{{ $post->user->picturePath }}" alt="user picture"></div>

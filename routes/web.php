@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -44,4 +45,10 @@ Route::middleware(['auth', 'verified'])->group(function (){
     Route::post('/blog/{blog}/publish',[PostsController::class,'publish'])->name('publish');
 
     Route::get('/', [PagesController::class, 'index'])->name('home');
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+    Route::get('/messages/show/{user_id}', [MessageController::class, 'show'])->name('messages.show');
+    Route::post('/messages/showName/', [MessageController::class, 'showName'])->name('messages.showName');
+
+    Route::post('/messages/store/{user_id}', [MessageController::class, 'store'])->name('messages.store');
+
 });

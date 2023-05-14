@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <script>
+        window.onload= function() {
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
     <div class="overflow-scroll pb-20">
         @php
             $messages = Auth::user()->sent->where('receiver_id', $user->id)->merge($user->sent->where('receiver_id', Auth::user()->id))->sortBy('created_at');

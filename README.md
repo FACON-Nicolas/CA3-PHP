@@ -1,4 +1,7 @@
-## Laravel 8 Complete Blog
+## Laravel 8 Tumblr Clone
+
+This is a git repository for a Server-Side Development project in Dundalk Institute of Technology. It contains every needed file to run a Tumblr clone website with Laravel.
+
 
 This repository is linked to [this youtube video](https://youtu.be/2UU2x5yLCIA) that show the web application in action.
 

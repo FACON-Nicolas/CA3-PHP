@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -25,11 +26,14 @@ class SearchController extends Controller
         return redirect()->route('search.search', $search);
     }
 
-    public function search(string $search): Factory|View|Application {
+    public function search(string $search, string $type="posts"): Factory|View|Application {
 
         return view('search.index', [
             'title' => 'Search Menu',
-            'users' => User::query()->where('name', 'LIKE',"%{$search}%")->get()
+            'users' => User::query()->where('name', 'LIKE',"%{$search}%")->get(),
+            'posts' => Post::query()->where('slug','LIKE',"%{$search}%")->orWhere('description','LIKE',"%{$search}%")->where('draft', '=', 0)->get(),
+            'type' => $type,
+            'content' => $search
         ]);
     }
 

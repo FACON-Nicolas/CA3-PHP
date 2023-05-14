@@ -28,7 +28,7 @@ Route::middleware(['auth', 'verified'])->group(function (){
     Route::get('/my', [UserController::class, 'home'])->name('my');
     Route::get('/my/edit', [UserController::class, 'edit'])->name("profile.edit");
     Route::post('/search', [SearchController::class, 'index'])->name('search');
-    Route::get('/search/{search}', [SearchController::class, 'search'])->name('search.search');
+    Route::get('/search/{search}/{type?}', [SearchController::class, 'search'])->name('search.search');
     Route::put('/profile/update/{id}', [UserController::class, 'update'])->name('profile.update');
     Route::post('/profile/{id}/follow', [FollowController::class, 'store'])->name('follow');
     Route::post('/profile/{id}/unfollow', [FollowController::class, 'destroy'])->name('unfollow');

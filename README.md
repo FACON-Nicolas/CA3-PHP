@@ -1,6 +1,6 @@
 ## Laravel 8 Complete Blog
 
-This repository is linked to [this youtube video](https://www.youtube.com/watch?v=HKJDLXsTr8A&t=4710s) where I show you how to create a complete blog in Laravel 8 using best practices.
+This repository is linked to [this youtube video](https://youtu.be/2UU2x5yLCIA) that show the web application in action.
 
 •	Author: FACON Nicolas & JOAO Ethan
 
